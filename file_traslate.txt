@@ -1,0 +1,1233 @@
+2. Página de título
+3. Página de derechos de autor
+4. Sobre los autores
+5. CONTENIDO BREVE
+6. CONTENIDO EN DETALLE
+7. PREFACIO
+8. AGRADECIMIENTOS
+9. INTRODUCCIÓN 1. Para quién es este libro
+2. Qué no es este libro
+3. ¿Por qué utilizar Go para piratear?
+4. Por qué es posible que no te guste ir
+5. Descripción general del capítulo 10. 1 GO FUNDAMENTOS 1. Configuración de un entorno de desarrollo
+2. Comprensión de la sintaxis de Go
+3. Resumen 11. 2 TCP, ESCÁNERES Y PROXIES 1. Comprensión del protocolo de enlace de TCP
+2. Omitir firewalls con reenvío de puertos
+3. Escribir un escáner TCP
+4. Creación de un proxy TCP
+5. Resumen 12. 3 CLIENTES HTTP E INTERACCIÓN REMOTA CON HERRAMIENTAS 1. Conceptos básicos de HTTP con Go
+2. Creación de un cliente HTTP que interactúe con Shodan
+3. Interacción con Metasploit
+4. Análisis de metadatos de documentos con Bing Scraping
+5. Resumen 13. 4 SERVIDORES HTTP, ENRUTAMIENTO Y MIDDLEWARE 1. Conceptos básicos del servidor HTTP
+2. Cosecha de credenciales
+3. Registro de teclas con la API de WebSocket
+4. Comando y control de multiplexación
+5. Resumen 14. 5 EXPLOTACIÓN DEL DNS 1. Escritura de clientes DNS
+2. Escritura de servidores DNS
+3. Resumen 15. 6 INTERACCIÓN CON SMB Y NTLM 1. El paquete SMB
+2. Comprensión de las PYMES
+3. Adivinar contraseñas con SMB
+4. Reutilización de contraseñas con la técnica Pass-the-Hash
+5. Recuperación de contraseñas NTLM
+6. Resumen 16. 7 ABUSO DE BASES DE DATOS Y SISTEMAS DE ARCHIVOS 1. Configuración de bases de datos con Docker
+2. Conexión y consulta de bases de datos en Go
+3. Creación de un minero de base de datos
+4. Saqueo de un sistema de archivos
+5. Resumen 17. 8 PROCESAMIENTO DE PAQUETES SIN PROCESAR 1. Configuración de su entorno
+2. Identificación de dispositivos mediante el subpaquete pcap
+3. Captura y filtrado de resultados en vivo
+4. Detectar y mostrar credenciales de usuario de texto sin cifrar
+5. Escaneo de puertos a través de protecciones SYN-flood
+6. Resumen 18. 9 ESCRIBIR Y PORTAR CÓDIGO DE EXPLOTACIÓN 1. Crear un Fuzzer
+2. Portabilidad de exploits to Go 3. Creación de Shellcode en Go
+4. Resumen 19. 10 PLUGINS GO Y HERRAMIENTAS EXTENSIBLES 1. Uso del sistema de plug-in nativo de Go
+2. Creación de complementos en Lua
+3. Resumen 20. 11 IMPLEMENTACIÓN Y ATAQUE DE LA CRIPTOGRAFÍA 1. Revisión de conceptos básicos de criptografía
+2. Comprensión de la biblioteca de cifrado estándar
+3. Explorando el hash
+4. Autenticación de mensajes
+5. Cifrado de datos
+6. RC2 de fuerza bruta
+7. Resumen 21. 12 INTERACCIÓN Y ANÁLISIS DEL SISTEMA WINDOWS 1. La función OpenProcess () de la API de Windows
+2. Los tipos unsafe.Pointer y uintptr
+3. Realización de la inyección de procesos con el paquete syscall
+4. El archivo ejecutable portátil
+5. Uso de C con Go
+6. Resumen 22. 13 OCULTAR DATOS CON ESTEGANOGRAFÍA 1. Explorar el formato PNG
+2. Lectura de datos de bytes de imagen
+3. Escritura de datos de bytes de imagen para implantar una carga útil
+4. Codificación y decodificación de datos de bytes de imagen mediante XOR
+5. Resumen
+6. Ejercicios adicionales 23. 14 CONSTRUYENDO UNA RATA DE MANDO Y CONTROL 1. Primeros pasos
+2. Definición y compilación de la API de gRPC
+3. Creación del servidor
+4. Creación del implante del cliente
+5. Creación del componente de administración 6. Ejecución de RAT
+7. Mejorando la RAT
+8. Resumen 24. Índice 1. i
+2. ii
+3. iii
+4. iv
+5. v
+6. vi
+7. vii
+8. viii
+9. ix
+10. x
+11. xi
+12. xii
+13. xiii
+14. xiv
+15. xv
+16. xvi
+17. xvii
+18. xviii
+19. xix
+20. xx
+21. xxi
+22. xxii
+23. xxiii
+24. xxiv
+25. xxv
+26. xxvi
+27. 1
+28. 2
+29. 3
+30. 4
+31. 5
+32. 6
+33. 7
+34. 8
+35. 9 36. 10
+37. 11
+38. 12
+39. 13
+40. 14
+41. 15
+42. 16
+43. 17
+44. 18
+45. 19
+46. ​​20
+47. 21
+48. 22
+49. 23
+50. 24
+51. 25
+52. 26
+53. 27
+54. 28
+55. 29
+56. 30
+57. 31
+58. 32
+59. 33
+60. 34
+61. 35
+62. 36
+63. 37
+64. 38
+65. 39
+66. 40
+67. 41
+68. 42
+69. 43
+70. 44
+71. 45
+72. 46
+73. 47
+74. 48
+75. 49 76. 50
+77. 51
+78. 52
+79. 53
+80. 54
+81. 55
+82. 56
+83. 57
+84. 58
+85. 59
+86. 60
+87. 61
+88. 62
+89. 63
+90. 64
+91. 65
+92. 66
+93. 67
+94. 68
+95. 69
+96. 70
+97. 71
+98. 72
+99. 73
+100. 74
+101. 75
+102. 76
+103. 77
+104. 78
+105. 79
+106. 80
+107. 81
+108. 82
+109. 83
+110. 84
+111. 85
+112. 86
+113. 87
+114. 88
+115. 89 116. 90
+117. 91
+118. 92
+119. 93
+120. 94
+121. 95
+122. 96
+123. 97
+124. 98
+125. 99
+126. 100
+127. 101
+128. 102
+129. 103
+130. 104
+131. 105
+132. 106
+133. 107
+134. 108
+135. 109
+136. 110
+137. 111
+138. 112
+139. 113
+140. 114
+141. 115
+142. 116
+143. 117
+144. 118
+145. 119
+146. 120
+147. 121
+148. 122
+149. 123
+150. 124
+151. 125
+152. 126
+153. 127
+154. 128
+155. 129 156. 130
+157. 131
+158. 132
+159. 133
+160. 134
+161. 135
+162. 136
+163. 137
+164. 138
+165. 139
+166. 140
+167. 141
+168. 142
+169. 143
+170. 144
+171. 145
+172. 146
+173. 147
+174. 148
+175. 149
+176. 150
+177. 151
+178. 152
+179. 153
+180. 154
+181. 155
+182. 156
+183. 157
+184. 158
+185. 159
+186. 160
+187. 161
+188. 162
+189. 163
+190. 164
+191. 165
+192. 166
+193. 167
+194. 168
+195. 169 196. 170
+197. 171
+198. 172
+199. 173
+200. 174
+201. 175
+202. 176
+203. 177
+204. 178
+205. 179
+206. 180
+207. 181
+208. 182
+209. 183
+210. 184
+211. 185
+212. 186
+213. 187
+214. 188
+215. 189
+216. 190
+217. 191
+218. 192
+219. 193
+220. 194
+221. 195
+222. 196
+223. 197
+224. 198
+225. 199
+226. 200
+227. 201
+228. 202
+229. 203
+230. 204
+231. 205
+232. 206
+233. 207
+234. 208
+235. 209 236. 210
+237. 211
+238. 212
+239. 213
+240. 214
+241. 215
+242. 216
+243. 217
+244. 218
+245. 219
+246. 220
+247. 221
+248. 222
+249. 223
+250. 224
+251. 225
+252. 226
+253. 227
+254. 228
+255. 229
+256. 230
+257. 231
+258. 232
+259. 233
+260. 234
+261. 235
+262. 236
+263. 237
+264. 238
+265. 239
+266. 240
+267. 241
+268. 242
+269. 243
+270. 244
+271. 245
+272. 246
+273. 247
+274. 248
+275. 249 276. 250
+277. 251
+278. 252
+279. 253
+280. 254
+281. 255
+282. 256
+283. 257
+284. 258
+285. 259
+286. 260
+287. 261
+288. 262
+289. 263
+290. 264
+291. 265
+292. 266
+293. 267
+294. 268
+295. 269
+296. 270
+297. 271
+298. 272
+299. 273
+300. 274
+301. 275
+302. 276
+303. 277
+304. 278
+305. 279
+306. 280
+307. 281
+308. 282
+309. 283
+310. 284
+311. 285
+312. 286
+313. 287
+314. 288
+315. 289 316. 290
+317. 291
+318. 292
+319. 293
+320. 294
+321. 295
+322. 296
+323. 297
+324. 298
+325. 299
+326. 300
+327. 301
+328. 302
+329. 303
+330. 304
+331. 305
+332. 306
+333. 307
+334. 308
+335. 309
+336. 310
+337. 311
+338. 312
+339. 313
+340. 314
+341. 315
+342. 316
+343. 317
+344. 318
+345. 319
+346. 320
+347. 321
+348. 322
+349. 323
+350. 324
+351. 325
+352. 326
+353. 327
+354. 328
+355. 329 356. 330
+357. 331
+358. 332
+359. 333
+360. 334
+361. 335
+362. 336
+363. 337
+364. 338
+365. 339
+366. 340
+367. 341
+368. 342 BLACK HAT GO Go Programación para hackers y
+Pentesters de Tom Steele, Chris Patten y Dan Kottmann San Francisco BLACK HAT GO. 
+Kottmann. 
+forma o por cualquier medio, electrónico o mecánico, incluido el fotocopiado,
+grabación, o por cualquier sistema de almacenamiento o recuperación de información, sin la previa
+permiso por escrito del propietario de los derechos de autor y del editor. 
+ISBN-13: 978-1-59327-865-6 Editorial: William Pollock
+Editor de producción: Laurel Chun
+Ilustración de portada: Jonny Thomas
+Diseño de interiores: Octopod Studios
+Editores de desarrollo: Frances Saux y Zach Lebowski
+Revisor técnico: Alex Harvey
+Corrector de estilo: Sharon Wilkey
+Compositor: Danielle Foster
+Correctora de pruebas: Brooke Littrel
+Indexadora: Beth Nauman-Montana Para obtener información sobre distribución, traducciones o ventas al por mayor, comuníquese con No Starch
+Press, Inc. directamente:
+No Starch Press, Inc.
+245 8th Street, San Francisco, CA 94103
+teléfono: 1.415.863.9900; 
+www.nostarch.com Biblioteca del Congreso Nombres de datos de catalogación en la publicación: Steele, Tom (Consultor de seguridad), autor. 
+| 
+Título: Black Hat Go: Go, programación para piratas informáticos y pentesters / Tom
+Steele, Chris Patten y Dan Kottmann.
+Descripción: San Francisco: No Starch Press, 2020. | 
+referencias bibliográficas e índice. 
+comienza presentando fundamentos como tipos de datos, estructuras de control y manejo de errores. 
+como rastrear y procesar paquetes, crear clientes HTTP y escribir
+exploits. "- Proporcionado por el editor.
+Identificadores: LCCN 2019041864 (imprimir) | 
+9781593278656 | 
+Materias: LCSH: Ensayos de penetración (seguridad informática) | 
+lenguaje del programa)
+Clasificación: LCC QA76.9.A25 S739 2020 (impresión) | 
+| 
+Registro LC disponible en https://lccn.loc.gov/2019041864
+Registro de libro electrónico LC disponible en https://lccn.loc.gov/2019041865 No Starch Press y el logotipo de No Starch Press son marcas registradas de No
+Starch Press, Inc. Otros nombres de productos y compañías aquí mencionados pueden ser los
+marcas comerciales de sus respectivos propietarios. 
+cada aparición de un nombre de marca registrada, estamos usando los nombres solo en un
+moda editorial y en beneficio del propietario de la marca, sin intención de
+infracción de la marca. 
+Si bien se han tomado todas las precauciones en la preparación de este trabajo, ni el
+los autores ni No Starch Press, Inc. tendrán responsabilidad alguna ante ninguna persona o entidad
+con respecto a cualquier pérdida o daño causado o presuntamente causado directamente o
+indirectamente por la información contenida en él. 
+2012 y fue uno de los primeros en su campo en aprovechar la
+lenguaje para herramientas ofensivas. 
+consultor de investigación en Atredis Partners con más de 10 años de
+experiencia en seguridad basada en investigación y adversarios
+evaluaciones. 
+cursos en numerosas conferencias, incluyendo Defcon, Black
+Hat, DerbyCon y BSides. 
+Black Belt en jiujitsu brasileño que compite regularmente, tanto
+regional y nacional. 
+academia de jiujitsu en Idaho. 
+STACKTITAN, una seguridad especializada en servicios contradictorios
+consultoría. 
+durante más de 25 años en diversas capacidades. 
+consultoría de décadas para una serie de
+organizaciones gubernamentales sobre diversos temas de seguridad, incluyendo
+técnicas ofensivas adversarias, capacidades de búsqueda de amenazas,
+y estrategias de mitigación. 
+uno de los equipos de adversarios avanzados más grandes de América del Norte.
+Antes de la consultoría formal, Chris sirvió honorablemente en el
+Fuerza Aérea de los Estados Unidos, apoyando el esfuerzo de guerra. 
+sirvió dentro del Departamento de Operaciones Especiales de Defensa
+Comunidad de inteligencia en USSOCOM, consultoría para Special
+Grupos de operaciones sobre iniciativas sensibles de guerra cibernética.
+Después del servicio militar de Chris, ocupó puestos de arquitecto principal en numerosas empresas de telecomunicaciones de Fortune 500.
+empresas, trabajando con socios en capacidad de investigación. 
+STACKTITAN. 
+y desarrollo del mayor adversario de América del Norte
+consultoría, que influye directamente en el oficio técnico, el proceso
+eficiencia, experiencia del cliente y calidad de entrega. 
+años de experiencia, Dan ha dedicado casi la totalidad de
+su carrera profesional a la industria cruzada, directo al cliente
+consultoría y desarrollo de consultoría, principalmente enfocado en
+seguridad de la información y entrega de aplicaciones.
+Dan se ha presentado en varios temas de seguridad nacional y regional.
+conferencias, incluyendo Defcon, BlackHat Arsenal, DerbyCon,
+BSides y más. 
+y ha creado varios códigos abiertos y propietarios
+aplicaciones, desde simples herramientas de línea de comandos hasta complejas,
+aplicaciones web de tres niveles y basadas en la nube. 
+y comenzó con sistemas integrados, robótica y
+programación. 
+hace años, centrándose en pruebas e investigación de seguridad. 
+para evitar hacer una herramienta para el trabajo, comenzó a usar
+el lenguaje de programación Go y no ha mirado atrás. 
+Qué no es este libro
+¿Por qué utilizar Go for Hacking?
+Por qué es posible que no te guste ir
+Resumen del capítulo 1
+GO FUNDAMENTALS Configuración de un entorno de desarrollo
+Descarga e instalación de Go
+Configuración de GOROOT para definir la ubicación binaria de Go
+Configuración de GOPATH para determinar la ubicación de su espacio de trabajo de Go
+Elección de un entorno de desarrollo integrado
+Uso de comandos comunes de la herramienta Go
+Comprensión de la sintaxis de Go
+Tipos de datos
+Estructuras de Control
+Concurrencia
+Manejo de errores
+Resumen de manejo de datos estructurados 2
+TCP, ESCÁNERES Y PROXIES Comprensión del protocolo de enlace de TCP
+Omitir firewalls con reenvío de puertos Escribir un escáner TCP
+Prueba de disponibilidad de puertos
+Realización de escaneo no concurrente
+Realización de un escaneo concurrente
+Construyendo un proxy TCP
+Usando io.Reader y io.Writer
+Creando el Echo Server
+Mejorar el código mediante la creación de un oyente en búfer
+Proxy de un cliente TCP
+Replicación de Netcat para el resumen de ejecución de comandos 3
+CLIENTES HTTP E INTERACCIÓN REMOTA CON
+HERRAMIENTAS Conceptos básicos de HTTP con Go
+Llamar a las API de HTTP
+Generando una solicitud
+Uso del análisis de respuestas estructuradas
+Creación de un cliente HTTP que interactúa con Shodan
+Revisión de los pasos para crear un cliente API
+Diseño de la estructura del proyecto
+Limpieza de llamadas a la API
+Consultar su suscripción a Shodan
+Crear un cliente
+Interactuar con Metasploit
+Configuración de su entorno
+Definiendo su objetivo
+Recuperar un token válido
+Definición de métodos de solicitud y respuesta
+Creación de una estructura de configuración y un método RPC
+Realización de llamadas remotas
+Creación de un programa de utilidad
+Análisis de metadatos de documentos con Bing Scraping
+Configurar el entorno y la planificación
+Definición del paquete de metadatos
+Asignación de datos a estructuras
+Búsqueda y recepción de archivos con Bing Summary 4
+SERVIDORES HTTP, ENRUTAMIENTO Y MIDDLEWARE Conceptos básicos del servidor HTTP
+Construyendo un servidor simple
+Construyendo un enrutador simple
+Construyendo middleware simple
+Enrutamiento con el paquete gorilla / mux
+Construyendo middleware con Negroni
+Agregar autenticación con Negroni
+Uso de plantillas para producir respuestas HTML
+Cosecha de credenciales
+Registro de teclas con la API de WebSocket
+Comando y control de multiplexación
+Resumen 5
+EXPLOTAR DNS Escritura de clientes DNS
+Recuperar registros A
+Procesamiento de respuestas de una estructura Msg
+Enumeración de subdominios
+Escribir servidores DNS
+Configuración del laboratorio e introducción al servidor
+Creación de servidor DNS y resumen de proxy 6
+INTERACCIÓN CON SMB Y NTLM El paquete SMB
+Entendiendo SMB
+Comprensión de los tokens de seguridad SMB
+Configurar una sesión SMB
+Uso de codificación mixta de campos de estructura
+Comprender los metadatos y los campos de referencia
+Comprensión de la implementación de las PYMES
+Adivinar contraseñas con SMB
+Reutilización de contraseñas con la técnica Pass-the-Hash Recuperación de contraseñas NTLM
+Calculando el hash
+Recuperación del resumen de hash NTLM 7
+ABUSO DE BASES DE DATOS Y SISTEMAS DE ARCHIVOS Configuración de bases de datos con Docker
+Instalación y inicialización de MongoDB
+Instalar y sembrar bases de datos PostgreSQL y MySQL
+Instalación y inicialización de bases de datos de Microsoft SQL Server
+Conexión y consulta de bases de datos en Go
+Consultando MongoDB
+Consultar bases de datos SQL
+Construyendo un minero de base de datos
+Implementación de un minero de base de datos MongoDB
+Implementación de un minero de base de datos MySQL
+Saquear un sistema de archivos
+Resumen 8
+PROCESAMIENTO DE PAQUETES SIN PROCESAR Configuración de su entorno
+Identificación de dispositivos mediante el subpaquete pcap
+Resultados de captura y filtrado en vivo
+Detectar y mostrar credenciales de usuario de texto sin cifrar
+Escaneo de puertos a través de protecciones SYN-flood
+Comprobación de indicadores de TCP
+Construyendo el filtro BPF
+Escritura del resumen del escáner de puertos 9
+ESCRIBIR Y PORTAR CÓDIGO DE EXPLOTACIÓN Creación de un Fuzzer
+Fuzzing por desbordamiento de búfer
+Inyección SQL Fuzzing Porting Exploits to Go
+Portar un exploit desde Python
+Portar un exploit desde C
+Creando Shellcode en Go
+Transformación C
+Transformación hexadecimal
+Transformación numérica
+Transformación sin procesar
+Codificación Base64
+Una nota sobre el resumen de la asamblea 10
+GO PLUGINS Y HERRAMIENTAS EXTENSIBLES Usando el sistema de plug-in nativo de Go
+Crear el programa principal
+Creación de un complemento para adivinar contraseñas
+Ejecutando el escáner
+Creación de complementos en Lua
+Creación de la función HTTP head ()
+Creando la función get ()
+Registro de funciones con Lua VM
+Escribir su función principal
+Creación de su script de complemento
+Prueba del resumen del complemento Lua 11
+IMPLEMENTANDO Y ATAQUE
+CRIPTOGRAFÍA Revisión de conceptos básicos de criptografía
+Comprensión de la biblioteca de cifrado estándar
+Explorando el hash
+Rompiendo un hash MD5 o SHA-256
+Implementando bcrypt
+Autenticar mensajes
+Cifrar datos
+Criptografía asimétrica de cifrado de clave simétrica
+RC2 de fuerza bruta
+Empezando
+Producir trabajo
+Realizar trabajo y descifrar datos
+Escribir la función principal
+Ejecución del resumen del programa 12
+INTERACCIÓN Y ANÁLISIS DEL SISTEMA DE WINDOWS La función OpenProcess () de la API de Windows
+Los tipos unsafe.Pointer y uintptr
+Realización de la inyección de procesos con el paquete syscall
+Definición de las DLL de Windows y asignación de variables
+Obtención de un token de proceso con la API de Windows de OpenProcess
+Manipular la memoria con la API de Windows VirtualAllocEx
+Escribir en la memoria con la API de Windows WriteProcessMemory
+Encontrar LoadLibrary con la API de Windows GetProcAddress
+Ejecución de la DLL maliciosa mediante CreateRemoteThread
+API de Windows
+Verificación de la inyección con la API de Windows WaitforSingleObject
+Limpieza con la API de Windows de VirtualFreeEx
+Ejercicios adicionales
+El archivo ejecutable portátil
+Comprensión del formato de archivo PE
+Escribir un analizador de PE
+Ejercicios adicionales
+Usando C con Go
+Instalación de una cadena de herramientas de C Windows
+Creación de un cuadro de mensaje con C y la API de Windows
+Construyendo Ir a C Resumen 13
+OCULTAR DATOS CON ESTEGANOGRAFÍA Explorando el formato PNG
+El encabezado La secuencia de fragmentos
+Lectura de datos de bytes de imagen
+Leer los datos del encabezado
+Leer la secuencia de fragmentos
+Escribir datos de bytes de imagen para implantar una carga útil
+Localizar una compensación de fragmentos
+Escribir bytes con el método ProcessImage ()
+Codificación y decodificación de datos de bytes de imagen mediante XOR
+Resumen
+Ejercicios adicionales 14
+CONSTRUYENDO UNA RATA DE MANDO Y CONTROL Primeros pasos
+Instalación de búferes de protocolo para definir una API de gRPC
+Crear el espacio de trabajo del proyecto
+Definición y construcción de la API de gRPC
+Creando el servidor
+Implementación de la interfaz de protocolo
+Escribir la función main ()
+Creación del implante del cliente
+Creación del componente de administración
+Ejecutando la RAT
+Mejorando la RAT
+Cifre sus comunicaciones
+Manejar interrupciones de conexión
+Registrar los implantes
+Agregar persistencia de la base de datos
+Soporta múltiples implantes
+Agregar funcionalidad de implante
+Comandos del sistema operativo en cadena
+Mejore la autenticidad del implante y practique el buen OPSEC
+Agregar resumen de arte ASCII ÍNDICE PRÓLOGO Los lenguajes de programación siempre han tenido un impacto en
+seguridad de información. 
+bibliotecas e implementaciones de protocolos disponibles dentro de cada
+el lenguaje termina definiendo la superficie de ataque de cualquier aplicación
+construido sobre ellos. 
+El lenguaje puede simplificar tareas complejas y hacer que las
+los difíciles triviales. 
+salida binaria, características de simultaneidad y ecosistema masivo
+conviértalo en una opción increíble para el desarrollo de herramientas de seguridad. 
+está reescribiendo las reglas para el desarrollo de aplicaciones seguras
+y la creación de herramientas de seguridad, lo que permite una mayor rapidez, seguridad y
+herramientas más portátiles.
+Durante los 15 años que trabajé en Metasploit
+Framework, el proyecto pasó por dos reescrituras completas,
+cambió los idiomas de Perl a Ruby, y ahora admite un
+gama de módulos, extensiones y cargas útiles multilingües.
+Estos cambios reflejan la naturaleza en constante evolución de
+desarrollo de software; 
+las herramientas deben adaptarse, y el uso del lenguaje correcto puede ahorrar
+enorme cantidad de tiempo. 
+se vuelven omnipresentes de la noche a la mañana. 
+cualquier cosa de valor usando un nuevo lenguaje, dada la
+incertidumbres del ecosistema y la gran cantidad de esfuerzo
+necesario para realizar tareas comunes antes que el estándar
+las bibliotecas se ponen al día.
+Los autores de Black Hat Go son pioneros en la seguridad de Go
+desarrollo de herramientas, responsable de algunos de los primeros proyectos de Go de código abierto, incluidos BlackSheepWall, Lair
+Framework, y sipbrute, entre muchos otros. 
+sirven como excelentes ejemplos de lo que se puede construir utilizando el
+idioma. 
+software como desgarrándolo, y este libro es un gran ejemplo de
+su capacidad para combinar estas habilidades.
+Black Hat Go ofrece todo lo necesario para empezar
+con el desarrollo Go en el espacio de la seguridad sin obtener
+empantanado en las características del lenguaje menos utilizadas. 
+escribir un escáner de red ridículamente rápido, un proxy HTTP malvado o
+marco de comando y control multiplataforma? 
+para ti. 
+en el desarrollo de herramientas de seguridad, este libro presentará
+conceptos y compensaciones que los piratas informáticos de todo tipo consideran
+al escribir herramientas. 
+en seguridad puede aprender mucho de los enfoques adoptados aquí, ya que
+La creación de herramientas para atacar otro software requiere una
+mentalidad que el desarrollo típico de aplicaciones. 
+Es probable que las compensaciones sean sustancialmente diferentes cuando su
+Los objetivos incluyen eludir los controles de seguridad y evadir
+detección.
+Si ya trabaja en seguridad ofensiva, este libro
+ayudarlo a construir servicios públicos que son años luz más rápidos que los existentes
+soluciones. 
+respuesta, este libro le dará una idea de cómo analizar
+y defenderse del malware escrito en el idioma Go.
+¡Feliz piratería! 
+Fundador del Proyecto Metasploit y la Corporación de Investigación Crítica
+Vicepresidente de Investigación y Desarrollo de Atredis Partners AGRADECIMIENTOS Este libro no habría sido posible si Robert Griesemer, Rob
+Pike y Ken Thompson no crearon este increíble
+lenguaje de desarrollo. 
+El equipo de desarrollo contribuye constantemente con actualizaciones útiles sobre
+cada lanzamiento. 
+El idioma no ha sido tan fácil y divertido de aprender y usar.
+Los autores también desean agradecer al equipo de No Starch
+Prensa: Laurel, Frances, Bill, Annie, Barbara y todos los demás
+con quien interactuamos. 
+territorio desconocido de escribir nuestro primer libro. 
+nuevas familias, nuevos trabajos, y todo el tiempo has tenido paciencia
+pero aun así nos empujó a completar este libro. 
+Ha sido un placer trabajar con el equipo de prensa en este proyecto. 
+y por hacer que la vida siguiera adelante mientras estaba encerrado
+en mi oficina por las noches y los fines de semana, trabajando en esto nunca
+libro final. 
+Tus constantes palabras de aliento ayudaron a hacer de este un
+realidad. 
+agradezco a "T" (mi quadra-mascota canina) por sujetar el suelo
+en mi oficina mientras pirateaba y me recordaba que
+“Afuera” es un lugar real que debería visitar. 
+corazón, quiero dedicar este libro a mis cachorros, Luna y
+Annie, que falleció mientras escribía este libro. 
+fueron y son todo para mí y este libro siempre será un
+recordatorio de mi amor por los dos. 
+amiga, Katie, por su constante apoyo, aliento y
+creer en mi 
+todo lo que haces por mí y nuestra familia. 
+Brooks y Subs por darme razones para trabajar tan duro. 
+no hay mejor trabajo que ser tu padre. 
+Sabuesos ”que un chico podría pedir: Leo (RIP), Arlo, Murphy y
+incluso Howie (sí, Howie también): has sistemáticamente
+destruyó mi casa y periódicamente me hizo cuestionar mi
+opciones de vida, pero su presencia y compañía significan la
+mundo para mi. 
+masticar. 
+ánimo; 
+apoyo y todo lo que haces por nuestra familia. 
+a mis amigos y compañeros de Atredis Partners y a cualquiera
+He compartido un caparazón en el pasado. 
+usted. 
+en mí desde el primer día. 
+agradecido por las personas increíbles en mi vida. 
+por ponerme en clases de computación (esto era una cosa).
+Mirando hacia atrás, esos fueron una completa pérdida de tiempo y pasé
+la mayor parte del tiempo jugando Myst, pero despertó interés (yo
+te pierdas los 90). 
+Cristo. 
+ha sucedido para llegar a este punto, y aquí estamos, finalmente. 
+Agradezco sinceramente los primeros comentarios que recibimos de
+amigos, colegas, familiares y lectores de publicación anticipada. 
+paciencia, querido lector, muchísimas gracias; 
+agradecido y espero que disfrute de este libro tanto como nosotros
+disfruté escribiéndolo. 
+código increíble! 
+las mayores prácticas de consultoría dedicadas a las pruebas de penetración. 
+consultores principales, ejecutamos trabajos de proyectos técnicos,
+incluidas las pruebas de penetración de la red, en nombre de nuestros clientes—
+pero también encabezamos el desarrollo de mejores herramientas,
+procesos y metodología. 
+Vaya como uno de nuestros principales lenguajes de desarrollo.
+Go ofrece las mejores funciones de otra programación
+idiomas, logrando un equilibrio entre rendimiento, seguridad,
+y facilidad de uso. 
+de elección al desarrollar herramientas. 
+actuando como defensores del lenguaje, impulsando nuestra
+colegas de la industria de la seguridad para probarlo. 
+de Go eran al menos dignos de consideración.
+En este libro, lo llevaremos en un viaje a través de Go
+lenguaje de programación desde la perspectiva de la seguridad
+practicantes y piratas informáticos. 
+no solo le mostrará cómo automatizar terceros o
+herramientas comerciales (aunque tocaremos eso un poco).
+En su lugar, profundizaremos en temas prácticos y diversos que abordan un problema, protocolo o táctica específicos útiles para
+adversarios. 
+comunicaciones, interactuar con Metasploit y Shodan, buscar
+sistemas de archivos y bases de datos, exploits de puertos de otros idiomas
+to Go, escribe las funciones básicas de un cliente SMB, ataca
+Windows, compilación cruzada de binarios, lío con criptografía, llamada C
+bibliotecas, interactuar con la API de Windows y mucho, mucho
+más. 
+sus propias herramientas de piratería con Go. 
+carreras, y en particular como consultores, hemos abogado por
+la programación como una habilidad fundamental para los probadores de penetración y
+profesionales de la seguridad. 
+mejora su comprensión de cómo funciona el software y cómo
+puede romperse. 
+zapatos, obtendrá una apreciación más holística de la
+desafíos a los que se enfrentan para proteger el software, y puede utilizar
+su experiencia personal para recomendar mejor las mitigaciones,
+elimine los falsos positivos y localice las vulnerabilidades oscuras.
+La codificación a menudo te obliga a interactuar con bibliotecas de terceros.
+y varias pilas de aplicaciones y marcos. 
+personas (incluidos nosotros), es experiencia práctica y retoques
+que conduce al mayor desarrollo personal.
+Para aprovechar al máximo este libro, lo alentamos a
+clonar el repositorio de código oficial del libro para tener todas las
+ejemplos de trabajo que discutiremos. 
+https://github.com/blackhat-go/bhg/. 
+sino una introducción al uso de Go para desarrollar herramientas de seguridad.
+Somos hackers y luego codificadores, en ese orden. 
+alguna vez hemos sido ingenieros de software. 
+hackers, le damos más importancia a la función que a la elegancia. 
+instancias, hemos optado por codificar como lo hacen los piratas informáticos, sin tener en cuenta
+algunos de los modismos o mejores prácticas del diseño de software. 
+consultores, el tiempo siempre es escaso; 
+a menudo más rápido y, por tanto, preferible a la elegancia. 
+necesita crear rápidamente una solución a un problema, estilo
+las preocupaciones son secundarias.
+Esto está destinado a enfurecer a los puristas de Go, que probablemente tuitearán a
+nosotros que no manejamos con elegancia todas las condiciones de error, que nuestro
+Los ejemplos podrían optimizarse, o que mejor construye o
+Hay métodos disponibles para producir los resultados deseados. 
+no, en la mayoría de los casos, preocupado por enseñarle lo mejor, el
+soluciones más elegantes o 100% idiomáticas, a menos que
+así beneficiará concretamente el resultado final. 
+cubrimos brevemente la sintaxis del lenguaje, lo hacemos simplemente para establecer
+una base de referencia sobre la que podemos construir. 
+no está aprendiendo a programar con elegancia con Go, esto es negro
+Hat Go. 
+lenguajes de tipado dinámico, como Python, Ruby o PHP
+—A expensas del rendimiento y la seguridad. 
+podría elegir un lenguaje escrito estáticamente, como C o C ++, que ofrece alto rendimiento y seguridad, pero no es muy fácil de usar.
+Go está despojado de gran parte de la fealdad de C, su principal
+ancestro, lo que hace que el desarrollo sea más fácil de usar. 
+tiempo, es un lenguaje escrito estáticamente que produce sintaxis
+errores en tiempo de compilación, aumentando su seguridad de que su
+el código realmente se ejecutará de forma segura. 
+de manera más óptima que los idiomas interpretados y fue diseñado
+con consideraciones de computación multinúcleo, haciendo concurrentes
+programar una brisa.
+Estas razones para usar Go no tienen que ver con la seguridad
+practicantes específicamente. 
+Las funciones son particularmente útiles para piratas informáticos y adversarios: Sistema de gestión de paquetes limpio Paquete de Go
+La solución de gestión es elegante e integrada directamente con
+Ir a herramientas. 
+descargar, compilar e instalar paquetes y
+dependencias, lo que hace que el consumo de bibliotecas de terceros
+simple y generalmente libre de conflictos.
+Compilación cruzada Una de las mejores características de Go es su
+capacidad de compilar ejecutables de forma cruzada. 
+no interactúa con C sin formato, puede escribir código fácilmente en
+su sistema Linux o Mac pero compile el código en un
+Formato ejecutable portátil compatible con Windows.
+Biblioteca estándar rica Tiempo dedicado a desarrollar en otros
+idiomas nos ha ayudado a apreciar el alcance de Go's
+biblioteca estándar. 
+bibliotecas necesarias para realizar muchas tareas comunes, como
+criptografía, comunicaciones de red, conectividad de bases de datos,
+y codificación de datos (JSON, XML, Base64, hex). 
+parte del paquete estándar del idioma, lo que reduce el
+esfuerzo necesario para configurar correctamente su desarrollo
+entorno o para llamar a las funciones.
+Simultaneidad A diferencia de los lenguajes que han existido
+más tiempo, Go se lanzó casi al mismo tiempo que la versión inicial
+Los procesadores multinúcleo convencionales estuvieron disponibles. 
+por este motivo, los patrones de simultaneidad y el rendimiento de Go
+las optimizaciones se ajustan específicamente a este modelo. 
+problema. 
+es probable que el binario tenga un tamaño de varios megabytes. 
+Por supuesto, puede eliminar los símbolos de depuración y usar un empaquetador
+para ayudar a reducir el tamaño, pero estos pasos requieren atención.
+Esto puede ser un inconveniente, especialmente por seguridad.
+profesionales que necesitan adjuntar un binario a un correo electrónico, alojarlo
+en un sistema de archivos compartido o transferirlo a través de una red.
+Verbosity While Go es menos detallado que lenguajes como
+C #, Java o incluso C / C ++, aún puede encontrar que el
+La construcción de lenguaje simplista te obliga a ser demasiado
+expresivo para cosas como listas (llamadas porciones en Go),
+procesamiento, bucle o manejo de errores. 
+fácilmente podría convertirse en un triple en Go. 
+sintaxis y filosofía. 
+que puede aprovechar para el desarrollo de herramientas, incluidas varias
+protocolos de red comunes como HTTP, DNS y SMB. 
+luego indague en varias tácticas y problemas que hemos
+encontrados como probadores de penetración, abordando temas que incluyen
+robo de datos, rastreo de paquetes y desarrollo de exploits.
+Finalmente, damos un breve paso atrás para hablar sobre cómo puede
+Cree herramientas dinámicas y conectables antes de sumergirse en las criptomonedas,
+atacar Microsoft Windows e implementar
+esteganografía.
+En muchos casos, habrá oportunidades para ampliar la
+herramientas que te mostramos para cumplir tus objetivos específicos. 
+presentamos ejemplos sólidos en todo momento, nuestra verdadera intención es
+proporcionarle el conocimiento y la base a través de
+que puede ampliar o reelaborar los ejemplos para cumplir con su
+metas. 
+Antes de continuar con cualquier tema de este libro, tenga en cuenta
+que nosotros, los autores y el editor, hemos creado este contenido
+solo para uso legal. 
+cosas nefastas o ilegales que elija hacer. 
+aquí es solo para fines educativos; 
+actividades de prueba de penetración contra sistemas o aplicaciones
+sin consentimiento autorizado.
+Las secciones que siguen proporcionan una breve descripción de cada
+capítulo. 
+Utilice el lenguaje de programación y proporcione las bases necesarias para comprender los conceptos de este libro. 
+una revisión abreviada de la sintaxis y los modismos básicos de Go. 
+el ecosistema Go, incluidas las herramientas de apoyo, los IDE,
+gestión de dependencias y más. 
+el lenguaje de programación puede esperar aprender las necesidades básicas
+de Go, que les permitirá, con suerte, comprender,
+implementar y ampliar los ejemplos en capítulos posteriores. 
+primitivas y patrones, entrada / salida (E / S) y el uso de
+interfaces a través de prácticas aplicaciones TCP. 
+a través de la creación de un escáner de puerto TCP simple que escanea un
+lista de puertos que utilizan opciones de línea de comandos analizadas. 
+destacar la simplicidad del código Go en comparación con otros
+idiomas y desarrollará su comprensión de los tipos básicos,
+entrada del usuario y manejo de errores. 
+mejorar la eficiencia y la velocidad de este escáner de puertos
+introduciendo funciones concurrentes. 
+construir un proxy TCP, un reenviador de puertos, comenzando con lo básico
+ejemplos y refinando nuestro código para crear una versión más confiable
+solución. 
+agujero ”en Go, que le enseña a ejecutar el sistema operativo
+comandos mientras manipula stdin y stdout y redirige
+ellos a través de TCP. 
+con herramientas Los clientes HTTP son un componente crítico para interactuar con
+arquitecturas modernas de servidores web. 
+para crear los clientes HTTP necesarios para realizar una variedad de interacciones web comunes. 
+para interactuar con Shodan y Metasploit. 
+demostrar cómo trabajar con motores de búsqueda, utilizándolos para
+raspar y analizar los metadatos del documento para extraer
+información útil para las actividades de elaboración de perfiles de la organización. 
+necesario para crear un servidor HTTP. 
+patrones de enrutamiento, middleware y plantillas, aprovechando esto
+conocimientos para crear un recolector de credenciales y un registrador de teclas.
+Por último, demostraremos cómo multiplexar comandos y
+controle las conexiones (C2) mediante la construcción de un proxy HTTP inverso. 
+Primero, realizaremos las operaciones del cliente, incluido cómo lucir
+para registros de dominio particulares. 
+escribir un servidor DNS personalizado y un proxy DNS, los cuales son
+útil para operaciones C2. 
+base para una discusión de las implementaciones de protocolos en Go.
+Mediante una implementación parcial del protocolo SMB,
+discutir el ordenamiento y desglose de datos, el uso de
+etiquetas de campo personalizadas y más. 
+cómo utilizar esta implementación para recuperar la firma SMB
+política, así como realizar ataques de adivinación de contraseñas. 
+vive en numerosos recursos, incluidas bases de datos y
+sistemas de archivos. 
+e interactuar con bases de datos a través de una variedad de SQL común
+y plataformas NoSQL. 
+Bases de datos SQL y consultas en ejecución. 
+buscar en bases de datos y tablas para obtener información sensible,
+técnica común utilizada durante la posexplotación. 
+muestre cómo recorrer los sistemas de archivos e inspeccionar archivos en busca de
+información. 
+usando la biblioteca gopacket, que usa libpcap. 
+identificar los dispositivos de red disponibles, utilizar filtros de paquetes y
+procesar esos paquetes. 
+que puede escanear de manera confiable a través de varios mecanismos de protección,
+incluyendo syn-flood y syn-cookies, que causan puerto normal
+escaneos para mostrar un exceso de falsos positivos. 
+comienza con la creación de un fuzzer para descubrir diferentes tipos de
+vulnerabilidades. 
+para portar exploits existentes a Go desde otros idiomas. 
+La discusión incluye un puerto de un exploit de deserialización de Java y
+el exploit de escalada de privilegios de Dirty COW. 
+capítulo con una discusión sobre la creación y transformación
+shellcode para usar con sus programas Go. 
+herramientas. 
+Mecanismo de complemento nativo de Go. 
+para este enfoque y discutir un segundo enfoque que aprovecha
+Lua para crear herramientas extensibles. 
+ejemplos que muestran cómo adoptar cualquier enfoque para realizar una
+tarea de seguridad común. 
+Criptografía Este capítulo cubre los conceptos fundamentales de simétrica
+y criptografía asimétrica con Go. 
+se centra en el uso y la comprensión de la criptografía a través de la
+paquete Go estándar. 
+en lugar de utilizar una biblioteca de terceros para el cifrado, utiliza una
+implementación nativa dentro del idioma. 
+código fácil de navegar, modificar y comprender.
+Exploraremos la biblioteca estándar examinando los
+casos de uso y herramientas de creación. 
+realizar hash, autenticación de mensajes y cifrado.
+Por último, demostraremos cómo descifrar por fuerza bruta un RC2-
+texto cifrado. 
+Análisis En nuestra discusión sobre el ataque a Windows, demostraremos
+métodos de interacción con la API nativa de Windows, explore
+el paquete syscall para realizar la inyección del proceso, y
+aprenda a construir un analizador binario ejecutable portátil (PE).
+El capítulo concluirá con una discusión sobre cómo llamar a los nativos C
+bibliotecas a través de los mecanismos de interoperabilidad C de Go. 
+otro archivo. 
+esteganografía: ocultar datos arbitrarios dentro de una imagen PNG
+contenido del archivo. 
+información, creando mensajes C2 ofuscados y omitiendo
+controles de detective o preventivos. 
+implantes y servidores de comando y control (C2) en Go. 
+aprovechar la sabiduría y el conocimiento adquiridos en
+capítulos para construir un canal C2. 
+La implementación, por la naturaleza de estar hecha a medida, evitará
+controles de seguridad basados ​​en firmas e intento de eludir
+controles de salida heurísticos y basados ​​en la red. 
+su entorno de desarrollo de Go y presentarle las
+sintaxis del idioma. 
+mecánica fundamental del lenguaje; 
+los conceptos más básicos que necesitará para trabajar con
+los ejemplos de código en los siguientes capítulos. 
+todo, desde tipos de datos primitivos hasta la implementación
+concurrencia. 
+idioma, encontrará que gran parte de este capítulo es una revisión. 
+MEDIO AMBIENTE Para comenzar con Go, necesitará un desarrollo funcional
+ambiente. 
+para descargar Go y configurar su espacio de trabajo y entorno
+variables. 
+entorno de desarrollo y algunas de las herramientas estándar que vienen con Go. 
+a su sistema operativo y arquitectura desde
+https://golang.org/dl/. 
+Mac OS. 
+binario precompilado, puede descargar el código fuente de Go
+desde ese enlace.
+Ejecute el binario y siga las instrucciones, que serán
+mínimo, para instalar el conjunto completo de paquetes principales de Go.
+Los paquetes, llamados bibliotecas en la mayoría de los otros idiomas, contienen
+código útil que puede utilizar en sus programas Go. 
+instalación. 
+ruta predeterminada, como / usr / local / go en un * Nix / BSD-based
+sistema, no tiene que realizar ninguna acción aquí. 
+el caso de que haya elegido instalar Go en un formato no estándar
+ruta o está instalando Go en Windows, deberá indicarle al
+sistema operativo donde encontrar el binario Go.
+Puede hacer esto desde su línea de comando configurando el
+variable de entorno GOROOT reservada a la ubicación de su
+binario. 
+específico. 
+~ / .profile: set GOROOT = / path / to / go En Windows, puede agregar esta variable de entorno a través del Sistema (Panel de control), haciendo clic en el
+Botón Variables de entorno. 
+Ir al espacio de trabajo A diferencia de configurar su GOROOT, que es necesario solo en ciertos
+escenarios de instalación, siempre debe definir un entorno
+variable denominada GOPATH para indicar al conjunto de herramientas Go dónde
+código fuente, bibliotecas de terceros y programas compilados
+existe. 
+elegido o creado este directorio de espacio de trabajo base, cree el
+siguientes tres subdirectorios dentro: bin, pkg y src (más
+en estos directorios en breve). 
+variable llamada GOPATH que apunta a su espacio de trabajo base
+directorio. 
+directorio llamado gocode ubicado dentro de su directorio de inicio en
+Linux, establezca GOPATH en lo siguiente: GOPATH = $ HOME / gocode El directorio bin contendrá su compilado e instalado
+Vaya a los binarios ejecutables. 
+se colocará automáticamente en esta ubicación. 
+El directorio almacena varios objetos de paquete, incluidos los de terceros.
+Vaya a las dependencias en las que su código pueda depender. 
+tal vez desee utilizar el código de otro desarrollador que más
+maneja elegantemente el enrutamiento HTTP. 
+contienen los artefactos binarios necesarios para consumir su
+implementación en su código. 
+contienen todo el código fuente maligno que escribirás.
+La ubicación de su espacio de trabajo es arbitraria, pero los directorios dentro deben coincidir con esta convención de nomenclatura y
+estructura. 
+comandos que aprenderá más adelante en este capítulo, todos se basan en
+esta estructura de directorio común. 
+Los proyectos de Go no se compilarán ni podrán ubicar ninguno de sus
+dependencias necesarias!
+Después de configurar el GOROOT y GOPATH necesarios
+variables de entorno, confirme que estén configuradas correctamente. 
+puede hacer esto en Linux y Windows a través del comando set. 
+compruebe que su sistema puede localizar el binario y que ha
+instaló la versión esperada de Go con el comando go version: $ go version
+go version go1.11.5 linux / amd64 Este comando debería devolver la versión del binario que
+instalado. 
+entorno (IDE) en el que escribir su código. 
+No se requiere IDE, muchos tienen funciones que ayudan a reducir errores
+en su código, agregue atajos de control de versiones, ayude en el paquete
+gestión y más. 
+Puede que no haya tantos IDE maduros como para otros lenguajes.
+Afortunadamente, los avances de los últimos años dejan
+usted con varias opciones con todas las funciones. 
+ellos en este capítulo. 
+opciones, consulte la página wiki de Go en
+https://github.com/golang/go/wiki/IDEsAndTextEditorPlugins/
+. 
+El editor de texto Vim, disponible en muchos sistemas operativos
+distribuciones, proporciona un versátil, extensible y completamente
+entorno de desarrollo de código abierto. 
+de Vim es que permite a los usuarios ejecutar todo desde su terminal
+sin interfaces gráficas de lujo que se interpongan en el camino
+Vim contiene un vasto ecosistema de complementos a través del cual
+puede personalizar temas, agregar control de versiones, definir
+fragmentos, agregar diseño y funciones de navegación de código, incluir
+autocompletar, realizar resaltado de sintaxis y entrelazado, y
+mucho mucho mas. 
+los sistemas incluyen Vundle y Pathogen.
+Para usar Vim for Go, instale el complemento vim-go
+(https://github.com/fatih/vim-go/) que se muestra en la Figura 1-1. 
+sentirse cómodo con Vim. 
+entorno de desarrollo con todas las funciones que desee
+puede ser un proceso frustrante. 
+probablemente tendrá que sacrificar algunas de las comodidades de
+IDE comerciales. 
+El IDE de GitHub, llamado Atom (https://atom.io/), es pirateable
+editor de texto con una gran oferta de contenido impulsado por la comunidad
+paquetes. 
+aplicación en lugar de una solución en la terminal, como se muestra en
+Figura 1-2. 
+administración, control de versiones, depuración, autocompletar y una
+una gran cantidad de funciones adicionales listas para usar o mediante el uso
+del complemento go-plus, que proporciona soporte dedicado para Go
+(https://atom.io/packages/go-plus/). 
+Visual Studio Code o VS Code de Microsoft
+(https://code.visualstudio.com), es posiblemente uno de los más
+Aplicaciones IDE ricas en funciones y fáciles de configurar. 
+El código, que se muestra en la Figura 1-3, es completamente de código abierto y se distribuye bajo una licencia MIT. 
+control de versiones, finalización de código, depuración, linting y
+formateo. 
+extensión (https://github.com/Microsoft/vscode-go/). 
+La colección de herramientas de desarrollo JetBrains es eficiente y
+rico en funciones, lo que hace que tanto el desarrollo profesional como
+proyectos de aficionados fáciles de realizar. 
+el JetBrains GoLand IDE parece.
+GoLang es el IDE comercial de JetBrains dedicado a
+Vaya idioma. 
+Organizaciones. 
+IDE enriquecido, que incluye depuración, finalización de código, versión
+control, pelusa, formateo y más. 
+El producto puede no parecer atractivo, productos comerciales como
+ya que GoLand normalmente tiene soporte oficial, documentación,
+correcciones de errores oportunas y algunas de las otras garantías que vienen
+con software empresarial. 
+proceso de desarrollo. 
+comúnmente incluidos en los IDE, lo que hace que las herramientas sean consistentes
+en todos los entornos de desarrollo. 
+Uno de los comandos más comunes que ejecutará durante
+desarrollo, ir a ejecutar compilará y ejecutará el paquete principal
+: El punto de entrada de su programa.
+Como ejemplo, guarde el siguiente código en un proyecto
+directorio dentro de $ GOPATH / src (recuerde, usted creó este
+espacio de trabajo durante la instalación) como main.go: paquete main
+importar
+"fmt"
+)
+func main () {
+fmt.Println ("¡Hola, topos de sombrero negro!")
+} Desde la línea de comando, dentro del directorio que contiene
+este archivo, ejecute go run main.go. 
+¡Gophers! 
+Tenga en cuenta que go run ejecutó su archivo, pero no produjo un
+archivo binario independiente. 
+build compila su aplicación, incluyendo cualquier
+paquetes y sus dependencias, sin instalar los resultados.
+Crea un archivo binario en el disco pero no ejecuta su
+programa. 
+convenciones, pero no es raro cambiar el nombre de la
+archivo binario creado utilizando la opción de línea de comando de salida -o.
+Cambie el nombre de main.go del ejemplo anterior a hello.go. 
+como estaba previsto, este comando debería crear un archivo ejecutable
+con el nombre hola. 
+¡Hola, ardillas de sombrero negro! 
+De forma predeterminada, el archivo binario producido contiene depuración
+información y la tabla de símbolos. 
+el archivo. 
+banderas durante el proceso de compilación para quitar esta información del
+binario. 
+tamaño binario en aproximadamente un 30 por ciento: $ go build -ldflags "-w -s" Tener un binario más pequeño hará que sea más eficiente
+transferir o incrustar mientras persigue sus nefastos esfuerzos. 
+El uso de go build funciona muy bien para ejecutar un binario en su
+sistema o uno de arquitectura idéntica, pero ¿y si desea
+crear un binario que pueda ejecutarse en una arquitectura diferente? 
+donde entra en juego la compilación cruzada. La compilación cruzada es uno de los
+los aspectos más interesantes de Go, ya que ningún otro idioma puede hacerlo tanto
+fácilmente. 
+programa para múltiples sistemas operativos y arquitecturas.
+Consulte la documentación oficial de Go en
+https://golang.org/doc/install/source#environment/ para más información
+detalles sobre las combinaciones permitidas de compatibilidad
+tipos de compilación de sistema operativo y arquitectura. 
+un medio para pasar información al comando de compilación sobre el
+sistema operativo y arquitectura para los que le gustaría
+compila tu código. 
+sistema operativo) y GOARCH (para la arquitectura).
